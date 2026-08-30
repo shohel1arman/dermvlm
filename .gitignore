@@ -1,0 +1,5 @@
+.venv/
+models/
+data/cf/
+data/images/
+__pycache__/

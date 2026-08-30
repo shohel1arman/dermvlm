@@ -1,0 +1,12 @@
+# Pin exact repo ids + commit hashes after downloading. Repo names below are my best guess of mlx-community naming — [VERIFY] on huggingface.co/mlx-community before use.
+vlm:
+  - mlx-community/Qwen3.5-0.8B-4bit
+  - mlx-community/Qwen3.5-2B-4bit
+  - mlx-community/Qwen3.5-4B-4bit
+  - mlx-community/gemma-4-E2B-it-4bit
+  - mlx-community/gemma-4-E4B-it-4bit
+slm:
+  - mlx-community/Qwen3.5-2B-4bit
+  - mlx-community/Qwen3.5-4B-4bit
+  - mlx-community/gemma-4-E2B-it-4bit
+  - mlx-community/gemma-4-E4B-it-4bit

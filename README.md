@@ -1,7 +1,5 @@
-# DermVLM — Perceive-then-Reason on Device (run order)
+# DermVLM — Perceive-then-Reason on Device 
 
-Inference-only. Runs on your Mac mini (Apple Silicon). One command at a time; paste the output back before the next step.
-Everything tagged [VERIFY] in the scripts must be checked against your installed versions before the full run.
 
 ## 0. Hardware gate
     sysctl -n hw.memsize | awk '{printf "%.0f GB\n", $1/1073741824}'

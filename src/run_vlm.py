@@ -9,21 +9,19 @@ from tqdm import tqdm
 sys.path.insert(0, os.path.dirname(__file__))
 from common import parse_json, norm_dx, norm_conf, done_ids
 
-def load_model(repo):                                    # ADAPT
+CFG = {}
+def load_model(repo):                                    # verified against mlx-vlm 0.6.17
     from mlx_vlm import load
+    from mlx_vlm.utils import load_config
+    CFG["config"] = load_config(repo)
     return load(repo)                                    # -> (model, processor)
 
 def run_one(model, processor, image_path, prompt, max_tokens):   # ADAPT
     from mlx_vlm import generate
-    try:                                                 # newer versions want a chat-templated prompt
-        from mlx_vlm.prompt_utils import apply_chat_template
-        from mlx_vlm.utils import load_config
-        cfg = getattr(model, "config", None)
-        cfg = cfg.__dict__ if cfg is not None and hasattr(cfg, "__dict__") else cfg
-        fp = apply_chat_template(processor, cfg, prompt, num_images=1)
-    except Exception:
-        fp = prompt
-    out = generate(model, processor, fp, image_path, max_tokens=max_tokens, temperature=0.0, verbose=False)
+    from mlx_vlm.prompt_utils import apply_chat_template
+    fp = apply_chat_template(processor, CFG["config"], prompt, num_images=1, enable_thinking=False)
+    out = generate(model, processor, fp, image_path, max_tokens=max_tokens, temperature=0.0,
+                   enable_thinking=False, seed=42, verbose=False)
     return out if isinstance(out, str) else getattr(out, "text", str(out))
 
 if __name__ == "__main__":

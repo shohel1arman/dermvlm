@@ -2,23 +2,23 @@
 # Class codes: akiec bcc bkl df mel nv vasc
 
 A_v1: |
-  You are assisting a dermatology research study. Look at this dermoscopic image and classify the lesion into exactly one of these codes: akiec, bcc, bkl, df, mel, nv, vasc.
+  You are assisting a dermatology research study. Look at this dermoscopic image and classify the lesion into exactly one of: melanocytic nevus (nv), melanoma (mel), benign keratosis-like lesion (bkl), basal cell carcinoma (bcc), actinic keratosis / Bowen's disease (akiec), dermatofibroma (df), vascular lesion (vasc).
   Return ONLY a JSON object with keys:
-  "diagnosis": one of the seven codes,
+  "diagnosis": the short code of your choice (nv, mel, bkl, bcc, akiec, df or vasc),
   "confidence": an integer 0-100 giving your probability that the diagnosis is correct,
   "rationale": one or two sentences naming the visible features that support it.
   No text outside the JSON.
 
 A_v2: |
-  This is a dermoscopic photograph of a skin lesion, used in a research study. Assign the single most likely category from: akiec, bcc, bkl, df, mel, nv, vasc.
+  This is a dermoscopic photograph of a skin lesion, used in a research study. Assign the single most likely category from: melanocytic nevus (nv), melanoma (mel), benign keratosis-like lesion (bkl), basal cell carcinoma (bcc), actinic keratosis / Bowen's disease (akiec), dermatofibroma (df), vascular lesion (vasc).
   Answer with a JSON object only, containing "diagnosis" (one code), "confidence" (integer 0-100, how likely your answer is correct) and "rationale" (1-2 sentences on the visual evidence).
 
 A_v3: |
-  Task: dermoscopic lesion classification for a research benchmark. Choose exactly one label among akiec, bcc, bkl, df, mel, nv, vasc.
+  Task: dermoscopic lesion classification for a research benchmark. Choose exactly one label among melanocytic nevus (nv), melanoma (mel), benign keratosis-like lesion (bkl), basal cell carcinoma (bcc), actinic keratosis / Bowen's disease (akiec), dermatofibroma (df), vascular lesion (vasc).
   Output strictly a JSON object: {"diagnosis": "<code>", "confidence": <0-100 integer probability of being correct>, "rationale": "<1-2 sentences describing the supporting features>"}
 
 A_abstain_v1: |
-  You are assisting a dermatology research study. Look at this dermoscopic image and classify the lesion into exactly one of these codes: akiec, bcc, bkl, df, mel, nv, vasc. If you cannot decide, use "uncertain".
+  You are assisting a dermatology research study. Look at this dermoscopic image and classify the lesion into exactly one of: melanocytic nevus (nv), melanoma (mel), benign keratosis-like lesion (bkl), basal cell carcinoma (bcc), actinic keratosis / Bowen's disease (akiec), dermatofibroma (df), vascular lesion (vasc). If you cannot decide, use "uncertain".
   Return ONLY a JSON object with keys "diagnosis" (a code or "uncertain"), "confidence" (integer 0-100), "rationale" (one or two sentences).
   No text outside the JSON.
 
@@ -26,13 +26,13 @@ B1_v1: |
   Describe the dermoscopic features of this skin lesion. Do NOT give a diagnosis.
   Return ONLY a JSON object with these keys. For the first seven use one of "absent", "present_regular", "present_irregular"; for others use "absent" or "present" unless stated:
   "pigment_network", "dots_globules", "streaks", "blue_white_veil", "regression_structures", "vascular_structures", "asymmetry",
-  "border_sharpness" ("sharp" or "blurred"), "colors" (list of colors seen), "scale_or_crust", "milia_like_cysts", "comedo_like_openings", "leaf_like_areas", "other" (free text, max 20 words).
+  "border_sharpness" ("sharp" or "blurred"), "colors" (list of colors seen), "scale_or_crust", "milia_like_cysts", "comedo_like_openings", "leaf_like_areas", "other" (free text, max 10 words).
   No text outside the JSON.
 
 B1_v2: |
   Without naming any diagnosis, report what you see in this dermoscopic image as a JSON object. Keys and allowed values:
   pigment_network, dots_globules, streaks, blue_white_veil, regression_structures, vascular_structures, asymmetry -> "absent" | "present_regular" | "present_irregular";
-  border_sharpness -> "sharp" | "blurred"; colors -> list of colors; scale_or_crust, milia_like_cysts, comedo_like_openings, leaf_like_areas -> "absent" | "present"; other -> short free text.
+  border_sharpness -> "sharp" | "blurred"; colors -> list of colors; scale_or_crust, milia_like_cysts, comedo_like_openings, leaf_like_areas -> "absent" | "present"; other -> free text, max 10 words.
   JSON only.
 
 B1_v3: |
@@ -41,14 +41,14 @@ B1_v3: |
   Use "absent"/"present_regular"/"present_irregular" for the first seven, "sharp"/"blurred" for border_sharpness, "absent"/"present" for the remaining binary keys.
 
 B2_v1: |
-  You are assisting a dermatology research study. Below is a structured dermoscopic feature description of a skin lesion, produced by an image model. Using ONLY this description, classify the lesion into exactly one of: akiec, bcc, bkl, df, mel, nv, vasc.
+  You are assisting a dermatology research study. Below is a structured dermoscopic feature description of a skin lesion, produced by an image model. Using ONLY this description, classify the lesion into exactly one of: melanocytic nevus (nv), melanoma (mel), benign keratosis-like lesion (bkl), basal cell carcinoma (bcc), actinic keratosis / Bowen's disease (akiec), dermatofibroma (df), vascular lesion (vasc).
   Description: {DESCRIPTION_JSON}
   Return ONLY a JSON object with keys "diagnosis", "confidence" (integer 0-100 probability of being correct), "key_features" (list of the description keys that drove the decision).
 
 B2_v2: |
   A vision model produced this structured description of a dermoscopic lesion: {DESCRIPTION_JSON}
-  Based solely on it, pick the single most likely category from akiec, bcc, bkl, df, mel, nv, vasc. Answer with JSON only: {"diagnosis": "<code>", "confidence": <0-100>, "key_features": [<keys used>]}
+  Based solely on it, pick the single most likely category from melanocytic nevus (nv), melanoma (mel), benign keratosis-like lesion (bkl), basal cell carcinoma (bcc), actinic keratosis / Bowen's disease (akiec), dermatofibroma (df), vascular lesion (vasc). Answer with JSON only: {"diagnosis": "<code>", "confidence": <0-100>, "key_features": [<keys used>]}
 
 B2_v3: |
   Research task. Input is a JSON description of dermoscopic features (no image available): {DESCRIPTION_JSON}
-  Output strictly one JSON object with "diagnosis" (one of akiec, bcc, bkl, df, mel, nv, vasc), "confidence" (integer 0-100) and "key_features" (list of strings).
+  Output strictly one JSON object with "diagnosis" (the code for one of melanocytic nevus (nv), melanoma (mel), benign keratosis-like lesion (bkl), basal cell carcinoma (bcc), actinic keratosis / Bowen's disease (akiec), dermatofibroma (df), vascular lesion (vasc)), "confidence" (integer 0-100) and "key_features" (list of strings).

@@ -18,4 +18,4 @@ for split in ["test", "val"]:
     out.to_csv(f"data/ham_{split}_manifest.csv", index=False)
     print(split, len(out), "missing:", missing, out.label.value_counts().to_dict(), "masks:", int((out.mask_path != "").sum()))
 v = pd.read_csv("data/ham_val_manifest.csv")
-v.groupby("label", group_keys=False).apply(lambda g: g.sample(min(30, len(g)), random_state=42)).to_csv("data/ham_val_dev200.csv", index=False)
+pd.concat([g.sample(min(30, len(g)), random_state=42) for _, g in v.groupby("label")]).to_csv("data/ham_val_dev200.csv", index=False)

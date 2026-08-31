@@ -29,10 +29,11 @@ if __name__ == "__main__":
     ap.add_argument("--model", required=True)
     ap.add_argument("--manifest", required=True)
     ap.add_argument("--prompt_id", required=True)
-    ap.add_argument("--max_tokens", type=int, default=220)
+    ap.add_argument("--max_tokens", type=int, default=0, help="0 = auto: 220 for A prompts, 400 for B1")
     ap.add_argument("--limit", type=int, default=0)
     a = ap.parse_args()
     prompt = yaml.safe_load(open("configs/prompts.yaml"))[a.prompt_id]
+    if a.max_tokens == 0: a.max_tokens = 400 if a.prompt_id.startswith("B1") else 220
     df = pd.read_csv(a.manifest)
     if a.limit: df = df.head(a.limit)
     tag = a.model.split("/")[-1]

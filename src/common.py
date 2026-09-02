@@ -2,23 +2,34 @@ import json, re, os
 CLASSES = ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"]
 
 def parse_json(txt):
-    """Extract the first JSON object from model text. Returns dict or None."""
+    """Extract the first JSON object from model text; salvages truncated JSON. Returns dict or None."""
     if not txt:
         return None
-    t = re.sub(r"<think>.*?</think>", "", txt, flags=re.S)          # drop thinking blocks if any
+    t = re.sub(r"<think>.*?</think>", "", txt, flags=re.S)
     t = re.sub(r"^```(?:json)?\s*|\s*```$", "", t.strip(), flags=re.M).strip()
     m = re.search(r"\{.*\}", t, flags=re.S)
-    if not m:
-        return None
-    try:
-        return json.loads(m.group(0))
-    except Exception:
-        # tolerate trailing commas / single quotes
-        s = re.sub(r",\s*}", "}", m.group(0)).replace("'", '"')
+    cands = []
+    if m:
+        c = m.group(0)
+        cands += [c, re.sub(r",\s*\}", "}", c).replace("'", '"')]
+    i = t.find("{")
+    if i >= 0:
+        tail = t[i:]
+        cands += [tail + "}", tail + '"}', tail.rstrip(", \n\t") + "}", tail.rstrip(", \n\t") + '"}']
+    for c in cands:
         try:
-            return json.loads(s)
+            return json.loads(c)
         except Exception:
-            return None
+            continue
+    d = re.search(r'"diagnosis"\s*:\s*"([^"]+)"', t)
+    if d:
+        out = {"diagnosis": d.group(1), "salvaged": True}
+        c2 = re.search(r'"confidence"\s*:\s*"?([0-9.]+)', t)
+        if c2: out["confidence"] = c2.group(1)
+        r2 = re.search(r'"rationale"\s*:\s*"([^"]*)', t)
+        if r2: out["rationale"] = r2.group(1)
+        return out
+    return None
 
 def norm_dx(v):
     if v is None:

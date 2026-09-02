@@ -1,0 +1,3 @@
+system,stage,mani,n_prompts,unanimous_rate,mean_pairwise_agreement
+Qwen3.5-0.8B-4bit,A,ham_test_manifest,2,0.29721669980119286,0.15457256461232605
+Qwen3.5-2B-4bit,A,ham_test_manifest,4,0.7616683217477657,0.8585733200926846

@@ -3,3 +3,5 @@ models/
 data/cf/
 data/images/
 __pycache__/
+*KGAT*
+*username*key*

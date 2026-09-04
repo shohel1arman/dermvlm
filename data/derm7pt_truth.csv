@@ -1,0 +1,396 @@
+image_id,pigment_network,streaks,regression_structures,dots_and_globules,blue_whitish_veil,vascular_structures
+d7_7,absent,absent,absent,absent,absent,arborizing
+d7_9,absent,absent,absent,absent,absent,arborizing
+d7_16,absent,absent,absent,absent,absent,absent
+d7_35,absent,absent,blue areas,irregular,absent,arborizing
+d7_42,absent,absent,absent,absent,absent,absent
+d7_43,absent,absent,absent,absent,absent,absent
+d7_54,absent,absent,absent,absent,absent,absent
+d7_56,absent,absent,absent,absent,absent,absent
+d7_65,absent,absent,absent,absent,absent,absent
+d7_71,typical,absent,blue areas,regular,absent,absent
+d7_72,typical,absent,absent,absent,absent,absent
+d7_90,absent,absent,combinations,irregular,absent,absent
+d7_104,typical,absent,absent,regular,absent,dotted
+d7_127,typical,irregular,white areas,regular,absent,within regression
+d7_139,absent,irregular,absent,absent,absent,absent
+d7_146,typical,absent,absent,regular,absent,absent
+d7_147,atypical,absent,absent,regular,absent,absent
+d7_168,typical,absent,blue areas,irregular,absent,absent
+d7_178,absent,regular,absent,regular,absent,absent
+d7_206,absent,irregular,absent,irregular,absent,absent
+d7_207,absent,regular,absent,absent,absent,absent
+d7_208,absent,regular,absent,absent,absent,absent
+d7_216,typical,absent,absent,irregular,absent,absent
+d7_220,absent,absent,absent,regular,absent,absent
+d7_231,typical,absent,absent,regular,absent,absent
+d7_254,typical,absent,absent,regular,absent,absent
+d7_264,typical,irregular,blue areas,irregular,absent,absent
+d7_279,typical,regular,absent,irregular,absent,absent
+d7_280,typical,irregular,absent,irregular,absent,absent
+d7_281,typical,absent,absent,regular,absent,absent
+d7_285,typical,absent,absent,regular,absent,absent
+d7_290,typical,absent,absent,absent,absent,absent
+d7_292,atypical,absent,absent,irregular,absent,absent
+d7_299,atypical,irregular,combinations,irregular,absent,absent
+d7_303,typical,absent,absent,regular,absent,absent
+d7_308,typical,regular,absent,irregular,absent,absent
+d7_322,typical,absent,combinations,irregular,absent,absent
+d7_336,typical,absent,white areas,regular,absent,dotted
+d7_338,typical,regular,absent,regular,absent,absent
+d7_339,absent,regular,absent,irregular,absent,absent
+d7_340,typical,absent,combinations,irregular,absent,absent
+d7_348,typical,absent,absent,irregular,absent,absent
+d7_349,typical,absent,absent,absent,absent,absent
+d7_352,absent,regular,absent,regular,absent,absent
+d7_364,typical,absent,absent,regular,absent,absent
+d7_382,typical,absent,absent,regular,absent,absent
+d7_409,typical,absent,blue areas,regular,absent,absent
+d7_443,typical,absent,blue areas,regular,absent,absent
+d7_454,typical,absent,absent,regular,absent,absent
+d7_465,typical,absent,blue areas,irregular,absent,absent
+d7_471,absent,absent,absent,regular,present,absent
+d7_483,typical,absent,blue areas,irregular,absent,absent
+d7_505,typical,absent,absent,absent,absent,absent
+d7_511,absent,absent,absent,regular,absent,absent
+d7_528,absent,absent,absent,absent,absent,comma
+d7_542,typical,absent,absent,irregular,absent,absent
+d7_549,typical,absent,absent,regular,absent,comma
+d7_562,typical,absent,absent,irregular,absent,absent
+d7_563,typical,absent,absent,absent,absent,absent
+d7_576,typical,absent,absent,absent,absent,absent
+d7_590,atypical,irregular,absent,irregular,absent,absent
+d7_591,atypical,absent,blue areas,irregular,absent,absent
+d7_596,atypical,absent,absent,irregular,absent,absent
+d7_619,atypical,absent,blue areas,regular,absent,absent
+d7_637,atypical,irregular,absent,absent,absent,absent
+d7_649,atypical,irregular,combinations,irregular,absent,within regression
+d7_656,typical,irregular,absent,irregular,present,absent
+d7_657,atypical,irregular,combinations,irregular,present,absent
+d7_688,absent,irregular,absent,irregular,present,absent
+d7_689,atypical,irregular,white areas,irregular,absent,within regression
+d7_702,typical,irregular,absent,irregular,present,absent
+d7_705,atypical,irregular,absent,absent,present,absent
+d7_708,absent,absent,blue areas,irregular,absent,absent
+d7_721,atypical,irregular,absent,absent,present,absent
+d7_732,atypical,irregular,combinations,irregular,absent,within regression
+d7_744,typical,absent,absent,irregular,present,absent
+d7_766,atypical,irregular,combinations,irregular,present,dotted
+d7_780,absent,irregular,absent,irregular,present,absent
+d7_786,atypical,irregular,combinations,irregular,absent,linear irregular
+d7_791,typical,absent,absent,irregular,present,absent
+d7_812,absent,absent,absent,irregular,present,dotted
+d7_831,absent,regular,absent,absent,absent,absent
+d7_846,absent,irregular,white areas,irregular,absent,dotted
+d7_862,atypical,irregular,blue areas,irregular,absent,absent
+d7_866,absent,regular,absent,regular,absent,absent
+d7_867,atypical,irregular,absent,regular,present,absent
+d7_872,atypical,irregular,absent,irregular,present,absent
+d7_890,atypical,irregular,absent,regular,absent,absent
+d7_901,atypical,regular,absent,irregular,present,absent
+d7_904,absent,absent,absent,regular,absent,absent
+d7_920,absent,absent,absent,irregular,present,dotted
+d7_926,atypical,regular,absent,irregular,present,absent
+d7_936,absent,absent,absent,regular,absent,dotted
+d7_940,absent,absent,absent,regular,absent,hairpin
+d7_943,absent,absent,absent,irregular,absent,absent
+d7_952,typical,absent,absent,irregular,absent,absent
+d7_954,absent,absent,absent,regular,absent,absent
+d7_957,atypical,absent,absent,absent,absent,absent
+d7_959,absent,absent,absent,absent,absent,absent
+d7_968,absent,absent,absent,absent,absent,absent
+d7_983,absent,absent,absent,absent,absent,absent
+d7_1000,absent,absent,absent,absent,absent,absent
+d7_1009,absent,absent,absent,absent,absent,absent
+d7_4,absent,absent,blue areas,irregular,present,within regression
+d7_11,absent,absent,absent,irregular,present,arborizing
+d7_21,absent,absent,absent,irregular,absent,absent
+d7_24,absent,absent,absent,absent,absent,arborizing
+d7_36,absent,absent,absent,absent,absent,arborizing
+d7_39,absent,absent,absent,irregular,absent,arborizing
+d7_41,absent,absent,combinations,irregular,absent,absent
+d7_53,absent,absent,absent,absent,absent,absent
+d7_62,absent,irregular,absent,absent,absent,absent
+d7_74,typical,irregular,absent,absent,absent,absent
+d7_84,typical,absent,blue areas,absent,absent,absent
+d7_87,typical,absent,absent,irregular,absent,absent
+d7_91,typical,absent,combinations,regular,absent,absent
+d7_97,typical,absent,absent,regular,absent,absent
+d7_107,absent,absent,combinations,irregular,present,absent
+d7_135,absent,absent,blue areas,irregular,absent,absent
+d7_137,absent,regular,absent,irregular,absent,absent
+d7_144,typical,absent,absent,irregular,absent,absent
+d7_152,absent,absent,absent,regular,absent,absent
+d7_162,typical,absent,white areas,regular,absent,absent
+d7_172,typical,absent,absent,absent,absent,absent
+d7_173,typical,absent,blue areas,regular,absent,absent
+d7_179,absent,regular,absent,regular,absent,absent
+d7_183,absent,absent,combinations,regular,absent,absent
+d7_196,absent,regular,absent,absent,absent,absent
+d7_201,absent,regular,absent,irregular,absent,absent
+d7_225,typical,absent,absent,regular,absent,absent
+d7_228,typical,irregular,absent,regular,absent,absent
+d7_244,typical,absent,absent,regular,absent,absent
+d7_251,atypical,absent,absent,absent,absent,comma
+d7_253,typical,absent,absent,absent,absent,absent
+d7_263,atypical,absent,absent,regular,absent,dotted
+d7_269,typical,absent,absent,regular,absent,absent
+d7_271,typical,absent,absent,irregular,absent,absent
+d7_274,typical,absent,absent,regular,absent,absent
+d7_276,typical,absent,absent,regular,absent,dotted
+d7_283,typical,absent,absent,regular,absent,absent
+d7_314,typical,absent,absent,irregular,absent,absent
+d7_320,typical,absent,absent,regular,absent,absent
+d7_331,typical,absent,absent,regular,absent,absent
+d7_343,typical,absent,combinations,irregular,absent,absent
+d7_350,typical,absent,absent,regular,absent,absent
+d7_366,atypical,irregular,absent,regular,absent,absent
+d7_372,typical,absent,absent,regular,absent,absent
+d7_386,typical,absent,absent,irregular,absent,absent
+d7_391,typical,absent,absent,regular,absent,comma
+d7_405,typical,absent,absent,regular,absent,absent
+d7_411,typical,absent,absent,regular,absent,absent
+d7_414,typical,absent,absent,regular,absent,comma
+d7_415,atypical,irregular,absent,regular,absent,absent
+d7_421,typical,absent,blue areas,regular,absent,absent
+d7_457,typical,absent,absent,regular,absent,absent
+d7_469,typical,absent,blue areas,regular,absent,absent
+d7_472,absent,absent,absent,regular,present,absent
+d7_481,typical,absent,blue areas,regular,present,absent
+d7_527,absent,absent,absent,absent,absent,absent
+d7_532,absent,absent,absent,irregular,present,linear irregular
+d7_540,typical,absent,absent,irregular,absent,absent
+d7_557,atypical,absent,absent,absent,absent,absent
+d7_569,typical,absent,absent,regular,absent,absent
+d7_575,typical,absent,absent,absent,absent,absent
+d7_583,atypical,irregular,absent,irregular,absent,absent
+d7_589,atypical,irregular,absent,irregular,absent,absent
+d7_600,atypical,absent,combinations,irregular,absent,absent
+d7_604,atypical,irregular,absent,irregular,absent,absent
+d7_611,atypical,irregular,absent,irregular,absent,absent
+d7_618,atypical,absent,absent,absent,absent,absent
+d7_620,atypical,absent,blue areas,irregular,absent,absent
+d7_631,atypical,irregular,absent,irregular,absent,absent
+d7_634,atypical,absent,blue areas,absent,absent,within regression
+d7_635,typical,absent,absent,irregular,absent,absent
+d7_645,absent,irregular,white areas,irregular,absent,absent
+d7_661,absent,irregular,combinations,irregular,present,absent
+d7_664,atypical,irregular,combinations,irregular,absent,absent
+d7_685,atypical,irregular,absent,irregular,present,absent
+d7_693,absent,absent,absent,irregular,present,absent
+d7_716,absent,irregular,combinations,irregular,absent,within regression
+d7_717,atypical,irregular,absent,irregular,absent,absent
+d7_720,absent,irregular,combinations,irregular,absent,absent
+d7_726,atypical,irregular,combinations,irregular,present,absent
+d7_736,atypical,irregular,absent,irregular,absent,absent
+d7_739,atypical,absent,combinations,absent,absent,within regression
+d7_741,atypical,absent,combinations,irregular,absent,absent
+d7_745,typical,absent,combinations,irregular,present,hairpin
+d7_759,absent,absent,combinations,irregular,present,linear irregular
+d7_762,absent,absent,absent,irregular,present,absent
+d7_781,absent,regular,absent,irregular,present,absent
+d7_796,typical,absent,absent,irregular,present,dotted
+d7_801,atypical,absent,absent,absent,present,hairpin
+d7_850,absent,irregular,white areas,irregular,absent,dotted
+d7_863,atypical,irregular,absent,irregular,present,absent
+d7_881,absent,regular,absent,irregular,absent,absent
+d7_884,absent,irregular,absent,irregular,present,absent
+d7_911,atypical,regular,absent,irregular,absent,absent
+d7_916,absent,regular,absent,irregular,absent,absent
+d7_937,absent,absent,absent,absent,absent,dotted
+d7_944,absent,absent,absent,absent,absent,hairpin
+d7_970,absent,absent,absent,absent,absent,dotted
+d7_986,absent,absent,absent,irregular,absent,absent
+d7_992,absent,absent,absent,absent,absent,absent
+d7_993,absent,absent,absent,absent,absent,absent
+d7_1004,absent,absent,absent,absent,absent,absent
+d7_29,absent,absent,absent,irregular,absent,arborizing
+d7_86,typical,absent,absent,absent,absent,absent
+d7_92,typical,absent,absent,regular,absent,absent
+d7_98,atypical,absent,absent,irregular,absent,absent
+d7_103,typical,absent,blue areas,regular,absent,absent
+d7_112,typical,absent,absent,regular,absent,absent
+d7_117,absent,regular,absent,regular,absent,absent
+d7_129,atypical,irregular,absent,irregular,absent,comma
+d7_145,typical,absent,absent,absent,absent,absent
+d7_148,typical,absent,absent,regular,absent,absent
+d7_159,typical,absent,absent,regular,absent,absent
+d7_169,typical,absent,absent,absent,absent,absent
+d7_182,absent,regular,absent,absent,absent,absent
+d7_191,absent,irregular,absent,irregular,absent,absent
+d7_213,absent,absent,absent,regular,absent,absent
+d7_239,typical,absent,blue areas,irregular,absent,absent
+d7_242,typical,absent,absent,regular,absent,absent
+d7_243,typical,absent,absent,irregular,absent,absent
+d7_250,typical,absent,white areas,irregular,absent,absent
+d7_282,typical,absent,blue areas,regular,absent,absent
+d7_297,absent,absent,absent,regular,absent,comma
+d7_310,typical,absent,absent,regular,absent,absent
+d7_321,typical,absent,absent,regular,absent,absent
+d7_327,typical,regular,absent,regular,absent,absent
+d7_345,typical,absent,blue areas,regular,absent,absent
+d7_358,atypical,absent,blue areas,irregular,absent,within regression
+d7_359,typical,absent,absent,regular,absent,absent
+d7_408,typical,absent,blue areas,irregular,absent,absent
+d7_417,typical,irregular,combinations,irregular,absent,absent
+d7_425,typical,absent,absent,absent,absent,absent
+d7_433,typical,absent,absent,regular,absent,comma
+d7_435,atypical,irregular,absent,absent,absent,absent
+d7_439,typical,absent,absent,irregular,absent,absent
+d7_460,typical,absent,absent,regular,absent,absent
+d7_478,absent,irregular,absent,irregular,present,absent
+d7_491,atypical,absent,absent,irregular,absent,absent
+d7_517,absent,absent,absent,regular,absent,comma
+d7_535,absent,absent,absent,absent,absent,arborizing
+d7_561,typical,absent,absent,regular,absent,absent
+d7_567,atypical,absent,absent,absent,absent,absent
+d7_573,typical,absent,absent,absent,absent,absent
+d7_574,typical,absent,absent,absent,absent,absent
+d7_578,atypical,irregular,absent,irregular,present,absent
+d7_579,typical,absent,white areas,regular,absent,within regression
+d7_586,atypical,absent,blue areas,irregular,absent,absent
+d7_593,atypical,absent,combinations,irregular,absent,absent
+d7_599,atypical,absent,blue areas,irregular,absent,within regression
+d7_609,atypical,absent,absent,irregular,absent,absent
+d7_629,atypical,irregular,absent,absent,absent,dotted
+d7_633,atypical,irregular,absent,irregular,absent,absent
+d7_653,absent,absent,white areas,irregular,absent,within regression
+d7_673,atypical,absent,blue areas,irregular,absent,within regression
+d7_677,atypical,irregular,blue areas,irregular,absent,absent
+d7_700,atypical,irregular,absent,irregular,absent,absent
+d7_710,typical,absent,blue areas,irregular,absent,absent
+d7_711,atypical,irregular,combinations,irregular,present,absent
+d7_722,absent,absent,blue areas,absent,absent,absent
+d7_724,atypical,irregular,absent,regular,absent,absent
+d7_728,absent,irregular,combinations,irregular,absent,linear irregular
+d7_735,atypical,irregular,absent,irregular,absent,absent
+d7_761,absent,absent,absent,irregular,present,absent
+d7_777,typical,absent,combinations,irregular,present,absent
+d7_782,absent,irregular,absent,irregular,present,absent
+d7_792,absent,absent,absent,irregular,present,absent
+d7_799,absent,irregular,absent,irregular,present,dotted
+d7_810,absent,absent,absent,irregular,present,absent
+d7_811,absent,absent,absent,absent,absent,hairpin
+d7_813,atypical,irregular,combinations,irregular,present,linear irregular
+d7_817,absent,irregular,absent,irregular,present,linear irregular
+d7_820,absent,absent,absent,irregular,present,linear irregular
+d7_821,absent,irregular,absent,irregular,present,dotted
+d7_834,absent,regular,combinations,absent,absent,arborizing
+d7_838,absent,regular,absent,regular,absent,absent
+d7_854,typical,regular,absent,regular,absent,absent
+d7_868,absent,regular,absent,regular,absent,absent
+d7_874,atypical,irregular,blue areas,irregular,absent,absent
+d7_888,absent,irregular,absent,regular,present,absent
+d7_889,absent,absent,absent,irregular,present,absent
+d7_897,absent,regular,absent,irregular,absent,absent
+d7_908,absent,regular,absent,absent,absent,absent
+d7_909,absent,regular,absent,absent,absent,absent
+d7_919,absent,irregular,combinations,irregular,absent,absent
+d7_922,absent,irregular,absent,irregular,present,dotted
+d7_924,typical,regular,blue areas,regular,absent,absent
+d7_938,absent,absent,absent,absent,absent,absent
+d7_953,typical,absent,combinations,irregular,present,absent
+d7_956,absent,absent,absent,absent,absent,hairpin
+d7_960,absent,absent,absent,regular,absent,absent
+d7_965,atypical,absent,absent,absent,absent,absent
+d7_971,atypical,absent,absent,absent,absent,absent
+d7_975,absent,absent,absent,absent,absent,absent
+d7_995,absent,absent,absent,absent,absent,absent
+d7_998,absent,absent,absent,absent,absent,absent
+d7_1002,absent,absent,absent,absent,absent,absent
+d7_1007,absent,absent,absent,absent,absent,absent
+d7_1010,absent,absent,absent,absent,absent,absent
+d7_15,absent,absent,blue areas,absent,absent,absent
+d7_32,absent,absent,absent,absent,absent,arborizing
+d7_33,absent,absent,absent,irregular,present,absent
+d7_45,absent,absent,absent,absent,absent,absent
+d7_55,absent,absent,absent,absent,absent,absent
+d7_58,absent,absent,absent,absent,absent,absent
+d7_60,absent,absent,absent,absent,absent,absent
+d7_67,absent,absent,absent,absent,absent,arborizing
+d7_79,typical,absent,blue areas,absent,absent,absent
+d7_100,absent,regular,blue areas,irregular,absent,absent
+d7_109,typical,regular,absent,absent,absent,absent
+d7_113,absent,absent,absent,irregular,present,absent
+d7_114,absent,regular,absent,regular,absent,absent
+d7_116,typical,absent,combinations,regular,absent,absent
+d7_121,typical,absent,white areas,regular,absent,within regression
+d7_126,absent,absent,combinations,irregular,absent,within regression
+d7_136,atypical,absent,white areas,irregular,absent,absent
+d7_150,absent,regular,absent,regular,absent,absent
+d7_161,typical,absent,blue areas,regular,absent,absent
+d7_180,absent,irregular,absent,irregular,absent,absent
+d7_197,typical,absent,absent,regular,absent,absent
+d7_200,absent,regular,absent,regular,absent,absent
+d7_202,absent,irregular,absent,irregular,absent,absent
+d7_218,typical,absent,absent,regular,absent,absent
+d7_227,absent,regular,absent,regular,absent,absent
+d7_232,atypical,absent,absent,regular,absent,absent
+d7_249,typical,absent,absent,irregular,absent,absent
+d7_270,typical,absent,absent,regular,absent,absent
+d7_272,typical,absent,absent,regular,absent,absent
+d7_312,typical,absent,absent,regular,absent,absent
+d7_328,atypical,irregular,absent,absent,absent,absent
+d7_341,typical,absent,absent,irregular,present,absent
+d7_360,typical,absent,combinations,regular,absent,absent
+d7_362,typical,irregular,absent,irregular,absent,absent
+d7_368,typical,absent,blue areas,irregular,absent,absent
+d7_371,typical,absent,combinations,irregular,absent,within regression
+d7_397,typical,absent,absent,regular,absent,absent
+d7_400,atypical,absent,absent,irregular,absent,absent
+d7_401,typical,absent,blue areas,irregular,absent,absent
+d7_403,typical,absent,absent,regular,absent,absent
+d7_418,atypical,irregular,blue areas,regular,absent,absent
+d7_428,atypical,absent,absent,irregular,absent,absent
+d7_444,typical,absent,absent,regular,absent,absent
+d7_445,typical,absent,absent,regular,absent,absent
+d7_451,typical,absent,absent,absent,absent,comma
+d7_462,typical,absent,absent,absent,absent,absent
+d7_480,absent,absent,absent,regular,present,absent
+d7_486,typical,absent,absent,irregular,absent,absent
+d7_492,typical,absent,absent,regular,absent,absent
+d7_524,absent,absent,absent,regular,absent,comma
+d7_525,absent,absent,absent,irregular,present,absent
+d7_536,absent,absent,absent,irregular,absent,dotted
+d7_537,typical,absent,absent,regular,absent,absent
+d7_547,typical,absent,absent,irregular,absent,absent
+d7_560,typical,absent,absent,absent,absent,absent
+d7_570,atypical,absent,absent,absent,absent,absent
+d7_581,atypical,irregular,combinations,irregular,present,within regression
+d7_582,absent,irregular,blue areas,irregular,absent,within regression
+d7_640,atypical,absent,combinations,absent,absent,within regression
+d7_641,atypical,irregular,combinations,irregular,present,absent
+d7_650,absent,irregular,combinations,irregular,absent,dotted
+d7_672,atypical,irregular,absent,irregular,present,absent
+d7_683,atypical,irregular,combinations,irregular,present,absent
+d7_696,atypical,irregular,blue areas,irregular,absent,absent
+d7_727,atypical,irregular,blue areas,regular,absent,absent
+d7_730,atypical,irregular,absent,regular,absent,absent
+d7_733,atypical,irregular,white areas,irregular,absent,absent
+d7_747,atypical,irregular,absent,irregular,present,absent
+d7_752,typical,irregular,blue areas,irregular,present,absent
+d7_760,absent,absent,absent,irregular,present,absent
+d7_787,atypical,irregular,white areas,irregular,present,dotted
+d7_793,absent,irregular,absent,irregular,present,dotted
+d7_797,atypical,irregular,absent,irregular,present,absent
+d7_804,absent,absent,absent,irregular,present,linear irregular
+d7_806,atypical,irregular,combinations,irregular,present,within regression
+d7_808,typical,absent,absent,irregular,present,absent
+d7_818,atypical,irregular,absent,irregular,present,absent
+d7_827,absent,absent,absent,irregular,present,arborizing
+d7_830,typical,absent,absent,absent,absent,absent
+d7_837,absent,regular,absent,absent,absent,hairpin
+d7_840,absent,regular,absent,absent,absent,absent
+d7_859,typical,regular,absent,irregular,absent,absent
+d7_865,absent,regular,absent,regular,absent,absent
+d7_878,absent,absent,blue areas,regular,absent,absent
+d7_880,absent,regular,absent,regular,present,absent
+d7_887,typical,regular,blue areas,irregular,absent,absent
+d7_905,absent,absent,absent,irregular,present,absent
+d7_910,absent,regular,absent,absent,absent,absent
+d7_912,atypical,irregular,absent,regular,absent,absent
+d7_915,atypical,irregular,absent,irregular,present,dotted
+d7_947,absent,absent,absent,absent,absent,hairpin
+d7_962,absent,absent,absent,absent,absent,absent
+d7_996,absent,absent,absent,absent,absent,absent
+d7_1011,absent,absent,white areas,absent,absent,absent

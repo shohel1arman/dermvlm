@@ -109,10 +109,11 @@ def main():
             if len(pv) < 5 or ("flip", "lesion") not in pv or ("flip", "control") not in pv: continue
             d = pv[("flip", "lesion")] - pv[("flip", "control")]
             bs = [d.iloc[rng.choice(len(d), len(d))].mean() for _ in range(B)]
-            fr.append(dict(system=sy, pid=pid, n=len(pv), flip_lesion=pv[("flip", "lesion")].mean(), flip_control=pv[("flip", "control")].mean(),
-                           flip_background=pv[("flip", "background")].mean() if ("flip", "background") in pv else np.nan,
+            def col(a, b): return pv[(a, b)].mean() if (a, b) in pv.columns else np.nan
+            fr.append(dict(system=sy, pid=pid, n=len(pv), flip_lesion=col("flip","lesion"), flip_control=col("flip","control"),
+                           flip_background=col("flip","background"),
                            faithfulness_delta=d.mean(), delta_lo=np.percentile(bs, 2.5), delta_hi=np.percentile(bs, 97.5),
-                           dconf_lesion=pv[("dconf", "lesion")].mean(), dconf_control=pv[("dconf", "control")].mean()))
+                           dconf_lesion=col("dconf","lesion"), dconf_control=col("dconf","control")))
         pd.DataFrame(fr).to_csv("results/faithfulness.csv", index=False)
     print(per_run[["run", "n", "parse_fail_rate", "bal_acc", "macro_f1", "ece", "aurc", "mel_recall", "latency_median"]].round(3).to_string() if len(per_run) else "no main runs")
 

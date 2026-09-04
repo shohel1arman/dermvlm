@@ -1,11 +1,19 @@
-"""Stratified subsample of the de-contaminated external ISIC split (cap per class). EDIT column names if needed."""
-import argparse, os, pandas as pd
-ap = argparse.ArgumentParser(); ap.add_argument("--ts", default=os.path.expanduser("~/Desktop/TrustSkin_R"))
-ap.add_argument("--cap", type=int, default=300); ap.add_argument("--img_col", default="image_path")
-ap.add_argument("--lbl_col", default="label"); ap.add_argument("--id_col", default="image_id")
+"""Stratified external ISIC subset from the de-contaminated TrustSkin split, mapped to local files."""
+import argparse, os, glob, pandas as pd
+ap = argparse.ArgumentParser()
+ap.add_argument("--ts", default=os.path.expanduser("~/Desktop/TrustSkin_R"))
+ap.add_argument("--img_root", default=os.path.expanduser("~/Desktop/data/isic2019"))
+ap.add_argument("--per_class", type=int, default=300)   # cap per class; rare classes kept whole
 a = ap.parse_args()
+idx = {}
+for p in glob.glob(os.path.join(a.img_root, "**", "*.jpg"), recursive=True):
+    idx.setdefault(os.path.splitext(os.path.basename(p))[0], p)
+print("local ISIC images indexed:", len(idx))
 ext = pd.read_csv(f"{a.ts}/data/splits/external_isic.csv")
-sub = pd.concat([g.sample(min(a.cap, len(g)), random_state=42) for _, g in ext.groupby(a.lbl_col)])
-out = pd.DataFrame({"image_id": sub[a.id_col], "image_path": sub[a.img_col], "label": sub[a.lbl_col], "mask_path": ""})
-out.to_csv("data/external_subset.csv", index=False)
-print(out.label.value_counts().to_dict(), len(out))
+ext["local"] = ext.image_id.map(idx)
+miss = ext.local.isna().sum()
+ext = ext.dropna(subset=["local"])
+sub = pd.concat([g.sample(min(a.per_class, len(g)), random_state=42) for _, g in ext.groupby("dx")])
+out = pd.DataFrame({"image_id": sub.image_id, "image_path": sub.local, "label": sub.dx, "mask_path": ""})
+out.to_csv(os.path.expanduser("~/Desktop/dermvlm/data/external_subset.csv"), index=False)
+print("mapped:", len(ext), "| missing:", int(miss), "| subset:", len(out), out.label.value_counts().to_dict())

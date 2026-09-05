@@ -1,60 +1,58 @@
-# DermVLM — Perceive-then-Reason on Device 
+# DermVLM — Perceive-then-Reason On Device
 
+A multi-dimensional **trustworthiness evaluation** of small, on-device vision-language models (VLMs) and small language models (SLMs) for **dermoscopic skin-lesion assessment**. All experiments are inference-only and run on a single Apple-Silicon machine (Mac mini, M2, 16 GB).
 
-## 0. Hardware gate
-    sysctl -n hw.memsize | awk '{printf "%.0f GB\n", $1/1073741824}'
-8 GB -> use only Qwen3.5-0.8B / 2B and gemma-4-E2B. 16 GB -> full model list in configs/models.yaml.
+Companion study to **TrustSkin** (supervised CNN/ViT trust evaluation); this work extends the accuracy-vs-trust decoupling question to zero-shot generalist VLMs.
 
-## 1. Environment
-    cd ~/Desktop && unzip -o dermvlm.zip && cd dermvlm
-    conda deactivate 2>/dev/null; conda deactivate 2>/dev/null
-    uv venv --python 3.11 && source .venv/bin/activate
-    uv pip install -U mlx-vlm mlx-lm pandas numpy scikit-learn pillow tqdm pyyaml
-    python -c "import mlx_vlm, mlx_lm; print(mlx_vlm.__version__, mlx_lm.__version__)"
-    python -c "import mlx_vlm, inspect; print(inspect.signature(mlx_vlm.generate))"
-    python -c "import mlx_lm, inspect; print(inspect.signature(mlx_lm.generate))"
-Paste those three outputs to me -> I adapt the two ADAPT functions in src/run_vlm.py / src/run_slm.py if needed.
+## Models (4-bit MLX)
+Qwen3.5-0.8B, Qwen3.5-2B, Gemma 4 E2B — via `mlx-vlm` 0.6.17 / `mlx-lm` 0.31.3.
 
-## 2. Manifests (from TrustSkin_R splits)
-    head -1 ~/Desktop/TrustSkin_R/data/splits/test.csv        # paste header; adjust --img_col/--lbl_col/--id_col if needed
-    python src/make_manifest.py --mask_dir /path/to/tschandl_masks   # omit --mask_dir if masks are not on the Mac yet
-    python src/make_external_subset.py --cap 300
+## Data
+- **HAM10000** (7 classes), leakage-controlled split from TrustSkin (test n=2014, val n=1020)
+- **Tschandl lesion segmentations** — counterfactual faithfulness (n=242 stratified)
+- **ISIC-2019**, de-contaminated external set (stratified subset n=1735)
+- **Derm7pt** (395 dermoscopic test cases) — perception accuracy vs seven-point checklist
 
-## 3. Smoke test + timing (do for EVERY model you plan to use)
-    IMG=$(python -c "import pandas as pd; print(pd.read_csv('data/ham_test_manifest.csv').image_path[0])")
-    /usr/bin/time -l python -m mlx_vlm.generate --model mlx-community/Qwen3.5-2B-4bit --image "$IMG" \
-      --prompt "Describe the dermoscopic features of this skin lesion." --max-tokens 200 --temperature 0.0 2>&1 | tail -25
-Record seconds/image and "maximum resident set size". This sets the budget.
+## Conditions
+- **A** — end-to-end VLM diagnosis (JSON: diagnosis, verbalized confidence, rationale); 3 paraphrases + abstention variant
+- **B** — perceive→reason: VLM emits a structured feature description (B1), a separate SLM diagnoses from text only (B2)
+- **Control** — same model reasons over its own description (diagonal of the 3×3 grid), isolating decomposition from model change
 
-## 4. Prompt validation on the dev set (val split ONLY), then freeze
-    python src/run_vlm.py --model mlx-community/Qwen3.5-2B-4bit --manifest data/ham_val_dev200.csv --prompt_id A_v1 --limit 20
-    tail -3 outputs/*.jsonl | python -m json.tool
-If parse_fail is high, we fix the prompt wording here — never on test. Then:
-    git add -A && git commit -m "prompts frozen" && git tag prompts-frozen
+## Trust axes
+Balanced accuracy, macro-F1, MCC, melanoma recall; calibration (ECE/Brier/NLL on verbalized confidence); selective prediction (AURC, risk@coverage); paraphrase consistency; counterfactual faithfulness (lesion vs same-size control mask); Derm7pt perception; on-device cost (latency). Bootstrap 95% CIs.
 
-## 5. Main runs (background, resumable). Repeat for each model x prompt_id
-    caffeinate -i python src/run_vlm.py --model mlx-community/Qwen3.5-2B-4bit --manifest data/ham_test_manifest.csv --prompt_id A_v1
-    ... A_v2, A_v3, A_abstain_v1, B1_v1, B1_v2, B1_v3
-A helper loop (edit the model list first):
-    for M in mlx-community/Qwen3.5-0.8B-4bit mlx-community/Qwen3.5-2B-4bit; do for P in A_v1 A_v2 A_v3 A_abstain_v1 B1_v1 B1_v2 B1_v3; do
-      caffeinate -i python src/run_vlm.py --model $M --manifest data/ham_test_manifest.csv --prompt_id $P; done; done
+## Headline findings
+- **Accuracy and trust decouple**: the best-accuracy model (Qwen3.5-2B, bal-acc ≈0.41) is also best-calibrated, but ranking on trust axes does not follow accuracy across models.
+- **Prompt fragility scales with size**: unanimous-label rate across paraphrases — Qwen3.5-2B 76%, Gemma4-E2B 18%, Qwen3.5-0.8B 2%.
+- **Faithfulness separates models**: lesion-vs-control flip delta — Qwen3.5-2B 0.56, Qwen3.5-0.8B 0.24, Gemma4-E2B 0.02 (Gemma barely uses the lesion).
+- **Decomposition trades accuracy for calibration**; the control shows gains come from the reasoner, not decomposition itself; some pairings collapse (degenerate melanoma recall).
+- **Calibration collapses under shift** (HAM→ISIC): ECE roughly doubles across models while accuracy holds up better.
+- **Perception is criterion-dependent**: blue-white veil recognized best; dots/globules and streaks near-random.
 
-## 6. Stage 2 (SLM over each B1 output) + decoupling control (same model as SLM)
-    caffeinate -i python src/run_slm.py --model mlx-community/Qwen3.5-4B-4bit --b1_jsonl outputs/Qwen3.5-2B-4bit__B1_v1__ham_test_manifest.jsonl --prompt_id B2_v1
-    caffeinate -i python src/run_slm.py --model mlx-community/Qwen3.5-2B-4bit --b1_jsonl outputs/Qwen3.5-2B-4bit__B1_v1__ham_test_manifest.jsonl --prompt_id B2_v1   # control C
+## Reproduce
+```bash
+uv venv --python 3.11 && source .venv/bin/activate
+uv pip install -U mlx-vlm mlx-lm pandas numpy scikit-learn pillow tqdm pyyaml matplotlib kaggle
+python src/make_manifest.py --img_root ~/Desktop/data/ham10000 --mask_dir <tschandl_masks>
+python src/make_external_subset.py
+python src/make_counterfactuals.py
+python src/make_derm7pt_manifest.py
+python src/run_vlm.py --model <repo> --manifest data/ham_test_manifest.csv --prompt_id A_v1
+python src/run_slm.py --model <repo> --b1_jsonl outputs/<...>__B1_v1__ham_test_manifest.jsonl --prompt_id B2_v1
+python src/reparse.py && python src/analyze.py
+python src/score_derm7pt.py
+python src/make_figures.py
+```
 
-## 7. Counterfactual faithfulness (needs masks)
-    python src/make_counterfactuals.py
-    caffeinate -i python src/run_vlm.py --model <M> --manifest data/cf_manifest.csv --prompt_id A_v1
-    caffeinate -i python src/run_vlm.py --model <M> --manifest data/cf_manifest.csv --prompt_id B1_v1
+## Repo layout
+- `src/` — runners (`run_vlm`, `run_slm`), data prep, `analyze.py`, `score_derm7pt.py`, `make_figures.py`
+- `configs/prompts.yaml` — frozen prompts (tag `prompts-frozen`)
+- `outputs/` — raw per-image JSONL (resumable)
+- `results/` — computed metrics (`per_run.csv`, `faithfulness.csv`, `consistency.csv`, `perception_derm7pt.csv`)
+- `fig/` — publication figures (PDF + PNG, 300 dpi)
 
-## 8. External shift + Derm7pt
-    caffeinate -i python src/run_vlm.py --model <M> --manifest data/external_subset.csv --prompt_id A_v1
-    (Derm7pt: build data/derm7pt_manifest.csv with image_id,image_path,label; run B1_v1; then python src/score_derm7pt.py <B1 jsonl> <derm7pt meta csv>)
+## Integrity
+Every number traces to a committed JSONL. Prompts frozen before test. Parse-failure and abstention rates reported, not hidden. Quantization is part of the system under test. Verbalized confidence is a self-report, not a posterior.
 
-## 9. Analysis (any time — it reads whatever outputs exist)
-    python src/analyze.py && ls results/
-Send me results/*.csv -> figures, stats and manuscript.
-
-## Self-test (synthetic, never for results)
-    python src/selftest.py && BOOT=200 python src/analyze.py && rm -rf outputs/* results/* data/ham_test_manifest.csv
+## Data licences
+HAM10000 CC BY-NC 4.0; Tschandl segmentations CC BY-NC 4.0; ISIC-2019 CC BY-NC 4.0; Derm7pt CC BY-NC-ND 4.0 (Kawahara et al., IEEE JBHI 2019, doi:10.1109/JBHI.2018.2824327). Research/non-commercial use.

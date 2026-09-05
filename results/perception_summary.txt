@@ -1,0 +1,7 @@
+criterion            blue_white_veil  ...  vascular_structures
+model                                 ...                     
+Qwen3.5-0.8B-4bit              0.531  ...                0.481
+Qwen3.5-2B-4bit                0.770  ...                0.540
+gemma-4-E2B-it-4bit            0.597  ...                0.416
+
+[3 rows x 6 columns]
